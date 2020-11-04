@@ -36,7 +36,7 @@ if tool=='1':
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
-if tool=='2':
+elif tool=='2':
     dir='/sdcard/ComboSuit/'+output+'-Separador'
     txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
     os.system('mkdir '+dir)
