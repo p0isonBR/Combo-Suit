@@ -3,9 +3,9 @@ from datetime import datetime
 os.system('mkdir /sdcard/ComboSuit')
 
 def sepdom(host, combo):
-    with open('/sdcard/ComboSuit/'+output+'-Host'+'/'+host+'.txt', "a+") as sep:
+    with open(dir+host+'.txt', "a+") as sep:
         sep.seek(0)
-        lin=sep.read(50)
+        lin=sep.read(150)
         if len(lin) > 1:
             sep.write("\n")
         sep.write(combo)
@@ -14,7 +14,7 @@ def change(combo):
     with open(txt, 'a+') as chan:
         chan.seek(0)
         line=chan.read(150)
-        if len(line) > 0:
+        if len(line) > 1:
             chan.write("\n")
         chan.write(combo)
     
@@ -46,8 +46,7 @@ elif tool=='2':
         change(combo)
 elif tool=='3':
     dir='/sdcard/ComboSuit/'+output+'-Host/'
-    txt=dir+host+'.txt'
-    os.system('mkdir '+dir+' && echo > '+txt)
+    os.system('mkdir '+dir)
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
