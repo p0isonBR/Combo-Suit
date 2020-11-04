@@ -11,8 +11,6 @@ sepdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'Separador')
 if not os.path.exists(sepdir):
     os.mkdir(sepdir)
 
-#os.system('mkdir /sdcard/ComboSuitByPoisonBR && mkdir /sdcard/ComboSuitByPoisonBR/PorDominio && mkdir /sdcard/ComboSuitByPoisonBR/Separador')
-
 def sepdom(host, combo):
     with open(dir+'/'+host+'.txt', "a+") as sep:
         sep.seek(0)
@@ -28,8 +26,6 @@ def change(combo):
         if len(line) > 1:
             chan.write("\n")
         chan.write(combo)
-    
-output=str(datetime.today())[0:10]
 
 print('''Tools:
 1 > separar combos por dominio (gmail, hotmail, yahoo...)
@@ -42,22 +38,24 @@ tool=input('Selecione a tool (1,2 ou 3): ')
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
-    dir='/sdcard/ComboSuitByPoisonBR/PorDominio/'+str(datetime.today())[0:10]
-    os.system('mkdir '+dir)
+    dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio', str(datetime.today())[0:10])
+    if not os.path.exists(dir):
+        os.mkdir(dir)
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
 elif tool=='2':
-    txt='/sdcard/ComboSuitByPoisonBR/Separador/Out-'+str(datetime.now())[11:19]+'.txt'
+    txt=sepdir+'/Out-'+str(datetime.now())[11:19]+'.txt'
     for combo in db:
         combo=combo.replace('|', ':')
         change(combo)
 elif tool=='3':
-    txt='/sdcard/ComboSuitByPoisonBR/Separador/Out-'+str(datetime.now())[11:19]+'.txt'
+    txt='sepdir+'/Out-'+str(datetime.now())[11:19]+'.txt'
     for combo in db:
         combo=combo.replace(':', '|')
         change(combo)
 else:
     print('a tool selecionada e invalida')
     exit('tool invalida')
+
 print('Tarefa realizada!')
