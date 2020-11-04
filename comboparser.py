@@ -2,7 +2,7 @@ import re, os
 from datetime import datetime
 
 def sepdom(host, combo):
-    with open(out+'/'+host+'.txt', "a+") as sep:
+    with open(output+'/'+host+'.txt', "a+") as sep:
         sep.seek(0)
         lin=sep.read(50)
         if len(lin) > 0:
@@ -31,7 +31,6 @@ db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
     os.system('mkdir '+output+'-Separador')
-    out=output+'-Separador'
     for combo in db:
         for key,value in char.items():
             combo=combo.replace(key,value)
