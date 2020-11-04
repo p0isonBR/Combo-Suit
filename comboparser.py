@@ -19,10 +19,6 @@ def change(combo):
         chan.write(combo)
     
 output=str(datetime.today())[0:10]
-char={
-    '|' :':',
-    ':' :'|'
-}
 
 print('''Tools:
 1 > Trocar separador | para : e vice-versa.
@@ -38,9 +34,8 @@ if tool=='1':
     txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
     os.system('mkdir '+dir+' && echo > '+txt)
     for combo in db:
-        for key,value in char.items():
-            combo=combo.replace(key,value)
-            change(combo)
+        combo=combo.replace('|', ':')
+        change(combo)
 elif tool=='2':
     dir='/sdcard/ComboSuit/'+output+'-Host/'
     for combo in db:
