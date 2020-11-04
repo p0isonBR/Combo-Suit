@@ -27,7 +27,7 @@ print('''Tools:
 
 tool=input('Selecione a tool (1 ou 2): ')
 
-while(tool!='1' or tool!='2'):
+while(tool!='1') or (tool!='2'):
     tool=input('Opcao invalida, escolha apenas 1 ou 2: ')
 
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
