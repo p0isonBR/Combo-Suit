@@ -1,6 +1,17 @@
 import re, os
 from datetime import datetime
-os.system('mkdir /sdcard/ComboSuitByPoisonBR && mkdir /sdcard/ComboSuitByPoisonBR/PorDominio && mkdir /sdcard/ComboSuitByPoisonBR/Separador')
+
+workdir=os.path('/sdcard/ComboSuitByPoisonBR')
+if not os.path.exists(workdir):
+    os.mkdir(workdir)
+domdir=os.path('/sdcard/ComboSuitByPoisonBR/PorDominio')
+if not os.path.exists(domdir):
+    os.mkdir(domdir)
+sepdir=os.path('/sdcard/ComboSuitByPoisonBR/Separador')
+if not os.path.exists(sepdir):
+    os.mkdir(sepdir)
+
+#os.system('mkdir /sdcard/ComboSuitByPoisonBR && mkdir /sdcard/ComboSuitByPoisonBR/PorDominio && mkdir /sdcard/ComboSuitByPoisonBR/Separador')
 
 def sepdom(host, combo):
     with open(dir+'/'+host+'.txt', "a+") as sep:
