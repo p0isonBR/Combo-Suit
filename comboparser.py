@@ -6,7 +6,7 @@ def sepdom(host, combo):
     with open('/sdcard/ComboSuit/'+output+'-Host'+'/'+host+'.txt', "a+") as sep:
         sep.seek(0)
         lin=sep.read(50)
-        if len(lin) > 0:
+        if len(lin) > 1:
             sep.write("\n")
         sep.write(combo)
 
