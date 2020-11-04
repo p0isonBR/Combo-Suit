@@ -50,7 +50,7 @@ elif tool=='3':
     os.system('mkdir '+dir+' && echo > '+txt)
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
-        sepdom(host, combo)'
+        sepdom(host, combo)
 else:
     print('a tool selecionada e invalida')
     exit('tool invalida')
