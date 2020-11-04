@@ -47,10 +47,10 @@ elif tool=='2':
 elif tool=='3':
     dir='/sdcard/ComboSuit/'+output+'-Host/'
     os.system('mkdir '+dir+' && echo > '+txt)
+    txt=dir+host+'.txt
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
-        sepdom(host, combo)
-    txt=dir+host+'.txt'
+        sepdom(host, combo)'
 else:
     print('a tool selecionada e invalida')
     exit('tool invalida')
