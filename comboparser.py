@@ -21,8 +21,9 @@ def change(combo):
 output=str(datetime.today())[0:10]
 
 print('''Tools:
-1 > Trocar separador | para : e vice-versa.
-2 > separar combos por dominio (gmail, hotmail...).
+1 > Trocar separador | para :.
+2 > Trocar separador : para |.
+3 > separar combos por dominio (gmail, hotmail...).
 ''')
 
 tool=input('Selecione a tool (1 ou 2): ')
@@ -37,6 +38,13 @@ if tool=='1':
         combo=combo.replace('|', ':')
         change(combo)
 elif tool=='2':
+    dir='/sdcard/ComboSuit/'+output+'-Separador'
+    txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
+    os.system('mkdir '+dir+' && echo > '+txt)
+    for combo in db:
+        combo=combo.replace(':', '|')
+        change(combo)
+elif tool=='3':
     dir='/sdcard/ComboSuit/'+output+'-Host/'
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
