@@ -10,7 +10,7 @@ def sepdom(host, combo):
         sep.write(combo)
 
 def change(combo):
-    with open('/sdcard/ComboSuit/'+output+'-Separador'+'/Out-'+str(datetime.now())[11:19]+'.txt', 'a+') as chan:
+    with open(txt, 'a+') as chan:
         chan.seek(0)
         line=chan.read(50)
         if len(line) > 0:
