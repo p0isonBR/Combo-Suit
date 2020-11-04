@@ -1,13 +1,13 @@
 import re, os
 from datetime import datetime
 
-workdir=os.path('/sdcard/ComboSuitByPoisonBR')
+workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
 if not os.path.exists(workdir):
     os.mkdir(workdir)
-domdir=os.path('/sdcard/ComboSuitByPoisonBR/PorDominio')
+domdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio')
 if not os.path.exists(domdir):
     os.mkdir(domdir)
-sepdir=os.path('/sdcard/ComboSuitByPoisonBR/Separador')
+sepdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'Separador')
 if not os.path.exists(sepdir):
     os.mkdir(sepdir)
 
