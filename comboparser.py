@@ -50,7 +50,7 @@ elif tool=='2':
         combo=combo.replace('|', ':')
         change(combo)
 elif tool=='3':
-    txt='sepdir+'/Out-'+str(datetime.now())[11:19]+'.txt'
+    txt=sepdir+'/Out-'+str(datetime.now())[11:19]+'.txt'
     for combo in db:
         combo=combo.replace(':', '|')
         change(combo)
