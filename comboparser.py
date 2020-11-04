@@ -1,4 +1,4 @@
-import re, os
+import re, os, time
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
 if not os.path.exists(workdir):
@@ -40,19 +40,40 @@ if tool=='1':
     dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio',dir)
     if not os.path.exists(dir):
         os.mkdir(dir)
-    for combo in db:
-        host=re.search('@(.*):', combo).group(1)
-        sepdom(host, combo)
-
+    try:
+        for combo in db:
+        	host=re.search('@(.*):', combo).group(1)
+        	sepdom(host, combo)
+    except(AttributeError):
+        	print('Voce deve trocar o separador antes (de | para :).'); time.sleep(3)
+        	ex=input('Deseja trocar agora? (y/n): ')
+        	if ex=='y' or ex=='Y' or ex=='yes' or ex=='Yes':
+        		new=input('Defina o nome do novo arquivo: ')
+        		txt=sepdir+'/'+new+'.txt'
+        		for combo in db:
+        			combo=combo.replace('|', ':')
+        			change(combo)
+        		db=open(txt, 'r').read().splitlines()
+        		try:
+        			for combo in db:
+        				host=re.search('@(.*):', combo).group(1)
+        				sepdom(host, combo)
+        		except:
+        			print('Tarefa realizada!')
+        			exit()
+        	else:
+        		print('Saindo...')
+        		exit()
+        	
 elif tool=='2':
-    txt=input('Defina o nome da nova DB: ')
+    txt=input('Defina o nome do novo arquivo: ')
     txt=sepdir+'/'+txt+'.txt'
     for combo in db:
         try:
         	if re.search(':', combo).group()==':':
         		combo=combo.replace(':','|')
         except(AttributeError):
-        	combo=combo.replace('|', ':')
+        	combo=combo.replace('|',':')
         change(combo)
 
 print('Tarefa realizada!')
