@@ -46,13 +46,14 @@ print(f'''{C}
 
 os.system('clear')
 
-print(f'''{C}*By PoisonBR{RT}
+print(f'''{B}*By PoisonBR
 {G} █████╗ █████╗ ███╗   ███╗██████╗  █████╗ {C}██████╗██╗  ██╗██╗███████╗
 {G}██╔═══╝██╔══██╗████╗ ████║██╔══██╗██╔══██╗{C}██╔═══╝██║  ██║██║╚═██╔══╝
 {G}██║    ██║  ██║██╔████╔██║██████╔╝██║  ██║{C}██████╗██║  ██║██║  ██║   
 {G}██║    ██║  ██║██║╚██╔╝██║██╔══██╗██║  ██║{C}╚═══██║██║  ██║██║  ██║   
 {G}╚█████╗╚█████╔╝██║ ╚═╝ ██║██████╔╝╚█████╔╝{C}██████║╚█████╔╝██║  ██║   
  {G}╚════╝  ╚═══╝ ╚═╝     ╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝ {G}v1.0{C}
+ [ {Y}i {C}] Os arquivos de saida ficarão na pasta: /sdcard/ComboSuitByPoisonBR/
  ''')
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
@@ -89,7 +90,7 @@ print(f'''{C}Selecione o modo de operação:
 try:
     tool=input(f'{C}Selecione ({G}1 {C}ou {G}2{C}): ')
 
-    db=open(input('Caminho da DB: '), 'rb').read().decode('utf-8',errors='ignore').splitlines()
+    db=open(input(f'{C}Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
 
     if tool=='1':
         dir=input(f'{C}Digite um nome para a pasta de saida:{B} ')
@@ -101,8 +102,8 @@ try:
                     host=re.search('@(.*):', combo).group(1)
                     sepdom(host, combo)
         except(AttributeError):
-                    print(f'{Y}Voce deve trocar o separador antes {C}(de {Y}| {C}para {Y}:{C}){Y}.'); time.sleep(3)
-                    ex=input(f'{C}Deseja trocar agora? [{G}y{C}/{R}n{C}]: ')
+                    print(f'{Y}Voce deve trocar o separador antes (de {C}| {Y}para {C}:{Y}).'); time.sleep(3)
+                    ex=input(f'{C}Deseja trocar agora? [{G}y{C}/{Y}n{C}]:{B} ')
                     if ex=='y' or ex=='Y' or ex=='yes' or ex=='Yes':
                             new=input(f'{C}Defina o nome do novo arquivo:{B} ')
                             txt=sepdir+'/'+new+'.txt'
