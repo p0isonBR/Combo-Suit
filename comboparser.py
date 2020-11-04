@@ -13,7 +13,7 @@ def sepdom(host, combo):
 def change(combo):
     with open(txt, 'a+') as chan:
         chan.seek(0)
-        line=chan.read(50)
+        line=chan.read(150)
         if len(line) > 0:
             chan.write("\n")
         chan.write(combo)
