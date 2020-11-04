@@ -53,7 +53,7 @@ print(f'''{B}*By PoisonBR
 {G}██║    ██║  ██║██║╚██╔╝██║██╔══██╗██║  ██║{C}╚═══██║██║  ██║██║  ██║   
 {G}╚█████╗╚█████╔╝██║ ╚═╝ ██║██████╔╝╚█████╔╝{C}██████║╚█████╔╝██║  ██║   
  {G}╚════╝  ╚═══╝ ╚═╝     ╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝ {G}v1.0{C}
- [ {Y}i {C}] Os arquivos de saida ficarão na pasta: /sdcard/ComboSuitByPoisonBR/
+ [{G}i{C}] Os arquivos de saida ficarão na pasta: /sdcard/ComboSuitByPoisonBR/
  ''')
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
@@ -83,17 +83,17 @@ def change(combo):
         chan.write(combo)
 
 print(f'''{C}Selecione o modo de operação:
-{C}[ {G}1 {C}] {B}separar combos por dominio ({C}gmail.com{B}, {C}hotmail.com{B}, {C}globo.com{B}...)
-{C}[ {G}2 {C}] {B}Trocar separador {C}| {B}para {C}: {B}e vice-versa.{C}
+{C}[{G}1{C}] {B}separar combos por dominio ({C}gmail.com{B}, {C}hotmail.com{B}, {C}globo.com{B}...)
+{C}[{G}2{C}] {B}Trocar separador {C}| {B}para {C}: {B}e vice-versa.{C}
 ''')
 
 try:
     tool=input(f'{C}Selecione ({G}1 {C}ou {G}2{C}): ')
 
-    db=open(input(f'{C}Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
+    db=open(input(f'{C}[{G}+{C}] Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
 
     if tool=='1':
-        dir=input(f'{C}Digite um nome para a pasta de saida:{B} ')
+        dir=input(f'{C}[{G}*{C}] Digite um nome para a pasta de saida:{B} ')
         dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio',dir)
         if not os.path.exists(dir):
             os.mkdir(dir)
@@ -102,10 +102,10 @@ try:
                     host=re.search('@(.*):', combo).group(1)
                     sepdom(host, combo)
         except(AttributeError):
-                    print(f'{Y}Voce deve trocar o separador antes (de {C}| {Y}para {C}:{Y}).'); time.sleep(3)
-                    ex=input(f'{C}Deseja trocar agora? [{G}y{C}/{Y}n{C}]:{B} ')
+                    print(f'{C}[{R}-{C}]{Y} Voce deve trocar o separador antes (de {C}| {Y}para {C}:{Y}).'); time.sleep(3)
+                    ex=input(f'{C}[{Y}-{C}] Deseja trocar agora? [{G}y{C}/{Y}n{C}]:{B} ')
                     if ex=='y' or ex=='Y' or ex=='yes' or ex=='Yes':
-                            new=input(f'{C}Defina o nome do novo arquivo:{B} ')
+                            new=input(f'{C}[{G}*{C}] Defina o nome do novo arquivo:{B} ')
                             txt=sepdir+'/'+new+'.txt'
                             for combo in db:
                                     combo=combo.replace('|', ':')
@@ -116,14 +116,14 @@ try:
                                             host=re.search('@(.*):', combo).group(1)
                                             sepdom(host, combo)
                             except:
-                                    print(f'{G}Operação finalizada!{C}')
+                                    print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
                                     exit()
                     else:
-                            print(f'{Y}Saindo...{C}')
+                            print(f'{C}[{R}-{C}] Saindo...{C}')
                             exit()
                     
     elif tool=='2':
-        txt=input(f'{C}Defina o nome do novo arquivo:{B} ')
+        txt=input(f'{C}[{G}*{C}]Defina o nome do novo arquivo:{B} ')
         txt=sepdir+'/'+txt+'.txt'
         for combo in db:
             try:
@@ -133,7 +133,7 @@ try:
                     combo=combo.replace('|',':')
             change(combo)
 
-    print(f'{G}Operação finalizada!{C}')
+    print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
 except(KeyboardInterrupt):
-    print(f'{C}Cancelado pelo usuário.')
+    print(f'{C}[{R}-{C}]Cancelado pelo usuário.')
     exit(f'{Y}Ctrl-C pressionado{C}')
