@@ -2,7 +2,7 @@ import re, os, time
 
 R='\033[1;31m'; B='\033[1;34m'; C='\033[1;37m'; Y='\033[1;33m'; G='\033[1;32m'; RT='\033[;0m'
 
-os.system('cls' if os.name=='nt' else 'clear')
+os.system('clear')
 
 print(f'''{C}
                             /+osyhhhhhhyys++/
@@ -42,10 +42,9 @@ print(f'''{C}
      ██╔═══╝ ██║   ██║██║╚════██║██║   ██║██║╚██╗██║██╔══██╗██╔══██╗
      ██║     ╚██████╔╝██║███████║╚██████╔╝██║ ╚████║██████╔╝██║  ██║
      ╚═╝      ╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝
-     {RT}{B}*t.me/p0isonBR*{RT}''')
+     {RT}{B}*t.me/p0isonBR*{RT}'''); time.sleep(3)
 
-time.sleep(3)
-os.system('cls' if os.name=='nt' else 'clear')
+os.system('clear')
 
 print(f'''{C}*By PoisonBR{RT}
 {G} █████╗ █████╗ ███╗   ███╗██████╗  █████╗ {C}██████╗██╗  ██╗██╗███████╗
@@ -53,7 +52,8 @@ print(f'''{C}*By PoisonBR{RT}
 {G}██║    ██║  ██║██╔████╔██║██████╔╝██║  ██║{C}██████╗██║  ██║██║  ██║   
 {G}██║    ██║  ██║██║╚██╔╝██║██╔══██╗██║  ██║{C}╚═══██║██║  ██║██║  ██║   
 {G}╚█████╗╚█████╔╝██║ ╚═╝ ██║██████╔╝╚█████╔╝{C}██████║╚█████╔╝██║  ██║   
- {G}╚════╝  ╚═══╝ ╚═╝v 1.0╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝
+ {G}╚════╝  ╚═══╝ ╚═╝     ╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝ 
+Consiga suas credenciais gratis no site {G}d7networks.com{C}.
 {RT}''')
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
@@ -82,18 +82,18 @@ def change(combo):
             chan.write("\n")
         chan.write(combo)
 
-print('''Tools:
-1 > separar combos por dominio (gmail, hotmail, yahoo...)
-2 > Trocar separador | para : e vice-versa.
+print(f'''{C}Selecione o modo de operação:
+{C}[ {G}1 {C}] {B}separar combos por dominio ({C}gmail.com{B}, {C}hotmail.com{B}, {C}globo.com{B}...)
+{C}[ {G}2 {C}] {B}Trocar separador {C}| {B}para {C}: {B}e vice-versa.{C}
 ''')
 
 try:
-    tool=input('Selecione a tool (1 ou 2): ')
+    tool=input(f'{C}Selecione ({G}1 {C}ou {G}2{C}): ')
 
     db=open(input('Caminho da DB: '), 'rb').read().decode('utf-8',errors='ignore').splitlines()
 
     if tool=='1':
-        dir=input('Digite um nome para a pasta de saida: ')
+        dir=input(f'{C}Digite um nome para a pasta de saida:{B} ')
         dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio',dir)
         if not os.path.exists(dir):
             os.mkdir(dir)
@@ -102,10 +102,10 @@ try:
                     host=re.search('@(.*):', combo).group(1)
                     sepdom(host, combo)
         except(AttributeError):
-                    print('Voce deve trocar o separador antes (de | para :).'); time.sleep(3)
-                    ex=input('Deseja trocar agora? (y/n): ')
+                    print(f'{Y}Voce deve trocar o separador antes {C}(de {Y}| {C}para {Y}:{C}){Y}.'); time.sleep(3)
+                    ex=prompt(f'{C}Deseja trocar agora? [{G}y{C}/{R}n{C}]: ')
                     if ex=='y' or ex=='Y' or ex=='yes' or ex=='Yes':
-                            new=input('Defina o nome do novo arquivo: ')
+                            new=input(f'{C}Defina o nome do novo arquivo:{B} ')
                             txt=sepdir+'/'+new+'.txt'
                             for combo in db:
                                     combo=combo.replace('|', ':')
@@ -116,14 +116,14 @@ try:
                                             host=re.search('@(.*):', combo).group(1)
                                             sepdom(host, combo)
                             except:
-                                    print('Tarefa realizada!')
+                                    print(f'{G}Operação finalizada!{C}')
                                     exit()
                     else:
-                            print('Saindo...')
+                            print(f'{Y}Saindo...{C}')
                             exit()
                     
     elif tool=='2':
-        txt=input('Defina o nome do novo arquivo: ')
+        txt=input(f'{C}Defina o nome do novo arquivo:{B} ')
         txt=sepdir+'/'+txt+'.txt'
         for combo in db:
             try:
@@ -133,7 +133,7 @@ try:
                     combo=combo.replace('|',':')
             change(combo)
 
-    print('Tarefa realizada!')
+    print(f'{G}Operação finalizada!{C}')
 except(KeyboardInterrupt):
-    print('Cancelado pelo usuário.')
-    exit('Ctrl-C pressionado')
+    print(f'{C}Cancelado pelo usuário.')
+    exit(f'{Y}Ctrl-C pressionado{C}')
