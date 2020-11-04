@@ -21,35 +21,35 @@ def change(combo):
 output=str(datetime.today())[0:10]
 
 print('''Tools:
-1 > Trocar separador | para :.
+1 > separar combos por dominio (gmail, hotmail, yahoo...)
 2 > Trocar separador : para |.
-3 > separar combos por dominio (gmail, hotmail...).
+3 > Trocar separador | para :.
 ''')
 
-tool=input('Selecione a tool (1 ou 2): ')
+tool=input('Selecione a tool (1,2 ou 3): ')
 
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
-    dir='/sdcard/ComboSuit/'+output+'-Separador'
-    txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
-    os.system('mkdir '+dir+' && echo > '+txt)
-    for combo in db:
-        combo=combo.replace('|', ':')
-        change(combo)
-elif tool=='2':
-    dir='/sdcard/ComboSuit/'+output+'-Separador'
-    txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
-    os.system('mkdir '+dir+' && echo > '+txt)
-    for combo in db:
-        combo=combo.replace(':', '|')
-        change(combo)
-elif tool=='3':
     dir='/sdcard/ComboSuit/'+output+'-Host/'
     os.system('mkdir '+dir)
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
+if tool=='2':
+    dir='/sdcard/ComboSuit/'+output+'-Separador'
+    txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
+    os.system('mkdir '+dir)
+    for combo in db:
+        combo=combo.replace('|', ':')
+        change(combo)
+elif tool=='3':
+    dir='/sdcard/ComboSuit/'+output+'-Separador'
+    txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
+    os.system('mkdir '+dir)
+    for combo in db:
+        combo=combo.replace(':', '|')
+        change(combo)
 else:
     print('a tool selecionada e invalida')
     exit('tool invalida')
