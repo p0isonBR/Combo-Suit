@@ -2,7 +2,7 @@ import re, os
 from datetime import datetime
 
 def sepdom(host, combo):
-    with open('/sdcard/'+output+'/'+host+'.txt', "a+") as sep:
+    with open('/sdcard/ComboSuit/'+output+'-Host'+'/'+host+'.txt', "a+") as sep:
         sep.seek(0)
         lin=sep.read(50)
         if len(lin) > 0:
@@ -10,7 +10,7 @@ def sepdom(host, combo):
         sep.write(combo)
 
 def change(combo):
-    with open('/sdcard/'+output+'/db.txt', 'a+') as chan:
+    with open('/sdcard/ComboSuit/'+output+'-Separador'+'/Out-'+datetime.now()[11:19]+'.txt', 'a+') as chan:
         chan.seek(0)
         line=chan.read(50)
         if len(line) > 0:
