@@ -53,7 +53,7 @@ print(f'''{B}*By PoisonBR
 {G}██║    ██║  ██║██║╚██╔╝██║██╔══██╗██║  ██║{C}╚═══██║██║  ██║██║  ██║   
 {G}╚█████╗╚█████╔╝██║ ╚═╝ ██║██████╔╝╚█████╔╝{C}██████║╚█████╔╝██║  ██║   
  {G}╚════╝  ╚═══╝ ╚═╝     ╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝ {G}v1.0{C}
- [{G}i{C}] Os arquivos de saida ficarão na pasta: /sdcard/ComboSuitByPoisonBR/
+[{G}i{C}] Os arquivos de saida ficarão na pasta: /sdcard/ComboSuitByPoisonBR/
  ''')
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
