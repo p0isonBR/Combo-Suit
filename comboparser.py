@@ -25,24 +25,23 @@ print('''Tools:
 2 > separar combos por dominio (gmail, hotmail...).
 ''')
 
-tool=int(input('Selecione a tool (1 ou 2): '))
-
-while(tool > 2):
-    tool=int(input('Opcao invalida, escolha apenas 1 ou 2: '))
+tool=input('Selecione a tool (1 ou 2): ')
 
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
-if tool==1:
+if tool=='1':
     os.system('mkdir '+output+'-Separador')
     out=output+'-Separador'
     for combo in db:
         for key,value in char.items():
             combo=combo.replace(key,value)
             change(combo)
-else:
+elif tool=='2':
     os.system('mkdir '+output+'-Host')
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
-
+else:
+    print('a tool selecionada e invalida')
+    exit('tool invalida')
 print('Tarefa realizada!')
