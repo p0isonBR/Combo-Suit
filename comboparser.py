@@ -48,10 +48,10 @@ elif tool=='2':
     txt=input('Defina o nome da nova DB: ')
     txt=sepdir+'/'+txt+'.txt'
     for combo in db:
-        r=re.search(':', combo).group()
-        if r==':':
-        	combo=combo.replace(':','|')
-        else:
+        try:
+        	if re.search(':', combo).group()==':':
+        		combo=combo.replace(':','|')
+        except(AttributeError):
         	combo=combo.replace('|', ':')
         change(combo)
 
