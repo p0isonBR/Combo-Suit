@@ -30,13 +30,13 @@ tool=input('Selecione a tool (1 ou 2): ')
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
-    os.system('mkdir /sdcard/'+output+'-Separador')
+    os.system('cat > /sdcard/'+output+'-Separador'+'/Out-'+str(datetime.now())[11:19]+'.txt')
     for combo in db:
         for key,value in char.items():
             combo=combo.replace(key,value)
             change(combo)
 elif tool=='2':
-    os.system('mkdir /sdcard/'+output+'-Host')
+    os.system('cat > /sdcard/ComboSuit/'+output+'-Host'+'/'+host+'.txt')
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
