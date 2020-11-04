@@ -52,9 +52,8 @@ print(f'''{C}*By PoisonBR{RT}
 {G}██║    ██║  ██║██╔████╔██║██████╔╝██║  ██║{C}██████╗██║  ██║██║  ██║   
 {G}██║    ██║  ██║██║╚██╔╝██║██╔══██╗██║  ██║{C}╚═══██║██║  ██║██║  ██║   
 {G}╚█████╗╚█████╔╝██║ ╚═╝ ██║██████╔╝╚█████╔╝{C}██████║╚█████╔╝██║  ██║   
- {G}╚════╝  ╚═══╝ ╚═╝     ╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝ 
-Consiga suas credenciais gratis no site {G}d7networks.com{C}.
-{RT}''')
+ {G}╚════╝  ╚═══╝ ╚═╝     ╚═╝╚═════╝  ╚════╝ {C}╚═════╝ ╚════╝ ╚═╝  ╚═╝ {G}v1.0{C}
+ ''')
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
 if not os.path.exists(workdir):
@@ -103,7 +102,7 @@ try:
                     sepdom(host, combo)
         except(AttributeError):
                     print(f'{Y}Voce deve trocar o separador antes {C}(de {Y}| {C}para {Y}:{C}){Y}.'); time.sleep(3)
-                    ex=prompt(f'{C}Deseja trocar agora? [{G}y{C}/{R}n{C}]: ')
+                    ex=input(f'{C}Deseja trocar agora? [{G}y{C}/{R}n{C}]: ')
                     if ex=='y' or ex=='Y' or ex=='yes' or ex=='Yes':
                             new=input(f'{C}Defina o nome do novo arquivo:{B} ')
                             txt=sepdir+'/'+new+'.txt'
