@@ -3,7 +3,7 @@ from datetime import datetime
 os.system('mkdir /sdcard/ComboSuitByPoisonBR && mkdir /sdcard/ComboSuitByPoisonBR/PorDominio && mkdir /sdcard/ComboSuitByPoisonBR/Separador')
 
 def sepdom(host, combo):
-    with open(dir+host+'.txt', "a+") as sep:
+    with open(dir+'/'+host+'.txt', "a+") as sep:
         sep.seek(0)
         lin=sep.read(150)
         if len(lin) > 1:
