@@ -33,7 +33,7 @@ print('''Tools:
 
 tool=input('Selecione a tool (1 ou 2): ')
 
-db=open(input('Caminho da DB: '), 'rb').read().encode('utf-8',errors='ignore').splitlines()
+db=open(input('Caminho da DB: '), 'rb').read().decode('utf-8',errors='ignore').splitlines()
 
 if tool=='1':
     dir=input('Digite um nome para a pasta de saida: ')
@@ -53,7 +53,7 @@ if tool=='1':
         		for combo in db:
         			combo=combo.replace('|', ':')
         			change(combo)
-        		db=open(txt, 'rb').read().encode('utf-8',errors='ignore').splitlines()
+        		db=open(txt, 'rb').read().decode('utf-8',errors='ignore').splitlines()
         		try:
         			for combo in db:
         				host=re.search('@(.*):', combo).group(1)
