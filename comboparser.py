@@ -38,12 +38,12 @@ if tool=='1':
             combo=combo.replace(key,value)
             change(combo)
 elif tool=='2':
+    dir='/sdcard/ComboSuit/'+output+'-Host/'
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
-    dir='/sdcard/ComboSuit/'+output+'-Host/'
+        sepdom(host, combo)
     txt=dir+host+'.txt'
     os.system('mkdir '+dir+' && echo > '+txt)
-    sepdom(host, combo)
 else:
     print('a tool selecionada e invalida')
     exit('tool invalida')
