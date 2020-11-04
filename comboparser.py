@@ -30,16 +30,20 @@ tool=input('Selecione a tool (1 ou 2): ')
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
-    os.system('cat > /sdcard/'+output+'-Separador'+'/Out-'+str(datetime.now())[11:19]+'.txt')
+    dir='/sdcard/ComboSuit/'+output+'-Separador/'
+    txt=dir+'Out-'+str(datetime.now())[11:19]+'.txt'
+    os.system('mkdir '+dir+' && echo > '+txt)
     for combo in db:
         for key,value in char.items():
             combo=combo.replace(key,value)
             change(combo)
 elif tool=='2':
-    os.system('cat > /sdcard/ComboSuit/'+output+'-Host'+'/'+host+'.txt')
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
-        sepdom(host, combo)
+    dir='/sdcard/ComboSuit/'+output+'-Host/'
+    txt=dir+host+'.txt'
+    os.system('mkdir '+dir+' && echo > '+txt)
+    sepdom(host, combo)
 else:
     print('a tool selecionada e invalida')
     exit('tool invalida')
