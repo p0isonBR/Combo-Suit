@@ -1,5 +1,6 @@
 import re, os
 from datetime import datetime
+os.system('mkdir /sdcard/ComboSuit')
 
 def sepdom(host, combo):
     with open('/sdcard/ComboSuit/'+output+'-Host'+'/'+host+'.txt', "a+") as sep:
@@ -30,8 +31,8 @@ tool=input('Selecione a tool (1 ou 2): ')
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
-    dir='/sdcard/ComboSuit/'+output+'-Separador/'
-    txt=dir+'Out-'+str(datetime.now())[11:19]+'.txt'
+    dir='/sdcard/ComboSuit/'+output+'-Separador'
+    txt=dir+'/Out-'+str(datetime.now())[11:19]+'.txt'
     os.system('mkdir '+dir+' && echo > '+txt)
     for combo in db:
         for key,value in char.items():
