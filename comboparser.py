@@ -2,7 +2,7 @@ import re, os
 from datetime import datetime
 
 def sepdom(host, combo):
-    with open(output+'/'+host+'.txt', "a+") as sep:
+    with open($PWD/output+'/'+host+'.txt', "a+") as sep:
         sep.seek(0)
         lin=sep.read(50)
         if len(lin) > 0:
@@ -10,7 +10,7 @@ def sepdom(host, combo):
         sep.write(combo)
 
 def change(combo):
-    with open(out+'/db.txt', 'a') as chan:
+    with open($PWD/output+'/db.txt', 'a+') as chan:
         chan.seek(0)
         line=chan.read(50)
         if len(line) > 0:
@@ -30,13 +30,13 @@ tool=input('Selecione a tool (1 ou 2): ')
 db=open(input('Caminho da DB: '), 'r').read().splitlines()
 
 if tool=='1':
-    os.system('mkdir '+output+'-Separador')
+    os.system('mkdir $PWD/'+output+'-Separador')
     for combo in db:
         for key,value in char.items():
             combo=combo.replace(key,value)
             change(combo)
 elif tool=='2':
-    os.system('mkdir '+output+'-Host')
+    os.system('mkdir $PWD/'+output+'-Host')
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
         sepdom(host, combo)
