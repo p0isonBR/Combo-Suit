@@ -46,7 +46,7 @@ elif tool=='2':
         change(combo)
 elif tool=='3':
     dir='/sdcard/ComboSuit/'+output+'-Host/'
-    txt=dir+host+'.txt
+    txt=dir+host+'.txt'
     os.system('mkdir '+dir+' && echo > '+txt)
     for combo in db:
         host=re.search('@(.*):', combo).group(1)
