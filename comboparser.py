@@ -10,7 +10,7 @@ def sepdom(host, combo):
         sep.write(combo)
 
 def change(combo):
-    with open(out+'/'db, 'a') as chan:
+    with open(out+'/db.txt', 'a') as chan:
         chan.seek(0)
         line=chan.read(50)
         if len(line) > 0:
