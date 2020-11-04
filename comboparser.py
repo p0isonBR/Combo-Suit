@@ -135,5 +135,5 @@ try:
 
     print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
 except(KeyboardInterrupt):
-    print(f'{C}[{R}-{C}]Cancelado pelo usuário.')
+    print(f'{C}[{R}-{C}] Cancelado pelo usuário.')
     exit(f'{Y}Ctrl-C pressionado{C}')
