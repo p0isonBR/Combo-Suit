@@ -19,7 +19,10 @@ def change(combo):
         chan.write(combo)
     
 output=str(datetime.today())[0:10]
-char={'|' :':', ':' :'|'}
+char={
+    '|' :':',
+    ':' :'|'
+}
 
 print('''Tools:
 1 > Trocar separador | para : e vice-versa.
