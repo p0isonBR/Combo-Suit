@@ -103,8 +103,8 @@ try:
                     sepdom(host, combo)
         except(AttributeError):
                     print(f'{C}[{R}-{C}]{Y} Voce deve trocar o separador antes (de {C}| {Y}para {C}:{Y}).'); time.sleep(3)
-                    ex=input(f'{C}[{Y}-{C}] Deseja trocar agora? [{G}y{C}/{Y}n{C}]:{B} ')
-                    if ex=='y' or ex=='Y' or ex=='yes' or ex=='Yes':
+                    ex=input(f'{C}[{Y}-{C}] Deseja trocar agora? [{G}y{C}/{Y}n{C}]:{B} ').lower()
+                    if ex=='y' or ex=='yes':
                             new=input(f'{C}[{G}*{C}] Defina o nome do novo arquivo:{B} ')
                             txt=sepdir+'/'+new+'.txt'
                             for combo in db:
