@@ -139,3 +139,5 @@ try:
 except(KeyboardInterrupt):
     print(f'{C}[{R}-{C}] Cancelado pelo usuário.')
     exit(f'{Y}Ctrl-C pressionado{C}')
+except(FileNotFoundError):
+    print('Arquivo não encontrado.')
