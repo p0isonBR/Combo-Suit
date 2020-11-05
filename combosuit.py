@@ -134,6 +134,7 @@ try:
             change(combo)
     else:
         print(f'{C}[{R}-{C}] Seleção inválida.')
+        exit()
 
     print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
 except(KeyboardInterrupt):
