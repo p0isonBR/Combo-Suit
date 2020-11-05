@@ -132,6 +132,8 @@ try:
             except(AttributeError):
                     combo=combo.replace('|',':')
             change(combo)
+    else:
+        print('Seleção inválida.')
 
     print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
 except(KeyboardInterrupt):
