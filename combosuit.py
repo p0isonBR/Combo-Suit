@@ -133,7 +133,7 @@ try:
                     combo=combo.replace('|',':')
             change(combo)
     else:
-        print(f'{C}[{R}-{C}] Seleção inválida.')
+        print(f'{C}[{R}-{C}] Forma de operação selecionada inválida.')
         exit()
 
     print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
