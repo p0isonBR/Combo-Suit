@@ -99,7 +99,7 @@ try:
             os.mkdir(dir)
         try:
             for combo in db:
-                    host=re.search('@(.*):', combo).group(1)
+                    host=re.search('@(.*?):', combo).group(1)
                     sepdom(host, combo)
         except(AttributeError):
                     print(f'{C}[{R}-{C}]{Y} Voce deve trocar o separador antes (de {C}| {Y}para {C}:{Y}).'); time.sleep(3)
