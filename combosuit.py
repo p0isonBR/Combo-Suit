@@ -123,7 +123,7 @@ try:
                                             sepdom(host, combo)
                             except:
                                     fim=str(datetime.datetime.now())
-                                    print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:]+G+'.')
+                                    print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:19]+G+'.'+C)
                                     exit()
                     else:
                             print(f'{C}[{R}-{C}] Saindo...{C}')
@@ -143,7 +143,7 @@ try:
         print(f'{C}[{R}-{C}] Forma de operação selecionada inválida.')
         exit()
     fim=str(datetime.datetime.now())
-    print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:]+G+'.')
+    print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:19]+G+'.'+C)
 except(KeyboardInterrupt):
     print(f'{C}[{R}-{C}] Cancelado pelo usuário.')
     exit(f'{Y}Ctrl-C pressionado{C}')
