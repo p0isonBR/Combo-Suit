@@ -99,6 +99,10 @@ try:
             os.mkdir(dir)
         try:
             for combo in db:
+                    if not ('@') in combo:
+                      combo='johndoe@example.com:p@ssword!'
+                    elif (' ') in combo:
+                      combo=combo.replace(' ', '')
                     host=re.search('@(.*?):', combo).group(1)
                     sepdom(host, combo)
         except(AttributeError):
