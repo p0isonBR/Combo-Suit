@@ -91,6 +91,8 @@ try:
     tool=input(f'{C}Selecione ({G}1 {C}ou {G}2{C}): ')
 
     db=open(input(f'{C}[{G}+{C}] Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
+    inicio=str(datetime.datetime.now())
+    print(G+len(db)+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
 
     if tool=='1':
         dir=input(f'{C}[{G}*{C}] Digite um nome para a pasta de saida:{B} ')
@@ -100,9 +102,9 @@ try:
         try:
             for combo in db:
                     if not ('@') in combo:
-                      combo='johndoe@example.com:p@ssword!'
+                            combo='johndoe@example.com:p@ssword!'
                     elif (' ') in combo:
-                      combo=combo.replace(' ', '')
+                            combo=combo.replace(' ', '')
                     host=re.search('@(.*?):', combo).group(1)
                     sepdom(host, combo)
         except(AttributeError):
@@ -120,7 +122,9 @@ try:
                                             host=re.search('@(.*?):', combo).group(1)
                                             sepdom(host, combo)
                             except:
-                                    print(f'{C}[{G}+{C}] {G}Operação finalizada!{C}')
+                                    fim=str(datetime.datetime.now())
+                                    total=inicio[11:]-fim[11:]
+                                    print(f'{C}[{G}+{C}] {G}Operação finalizada! Tempo decorrido: {C}'+total+ 'minutos.')
                                     exit()
                     else:
                             print(f'{C}[{R}-{C}] Saindo...{C}')
