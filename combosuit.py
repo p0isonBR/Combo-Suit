@@ -144,7 +144,11 @@ try:
         print(f'{C}[{R}-{C}] Forma de operação selecionada inválida.')
         exit()
     fim=str(datetime.datetime.now())
-    total=inicio[11:]-fim[11:]
+    inicio=inicio[11:]
+    inicio=int(inicio)
+    fim=fim[11:]
+    fim=int(fim)
+    total=inicio-fim
     print(f'{C}[{G}+{C}] {G}Operação finalizada! Tempo decorrido: {C}'+total+ 'minutos.')
 except(KeyboardInterrupt):
     print(f'{C}[{R}-{C}] Cancelado pelo usuário.')
