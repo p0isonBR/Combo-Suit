@@ -92,7 +92,7 @@ try:
 
     db=open(input(f'{C}[{G}+{C}] Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
     inicio=str(datetime.datetime.now())
-    print(G+len(db)+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
+    print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
 
     if tool=='1':
         dir=input(f'{C}[{G}*{C}] Digite um nome para a pasta de saida:{B} ')
