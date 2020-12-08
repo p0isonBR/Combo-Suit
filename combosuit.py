@@ -108,7 +108,7 @@ try:
 					host=re.search('@(.*?):', combo).group(1)
 					sepdom(host, combo)
 		except(AttributeError):
-				continue
+			continue
 
 	elif tool=='2':
 		txt=input(f'{C}[{G}*{C}]Defina o nome do novo arquivo:{B} ')
