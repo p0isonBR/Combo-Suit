@@ -75,9 +75,9 @@ def sepdom(host, combo):
 				if len(lin) > 1:
 					sep.write("\n")
 				sep.write(combo)
-				breake
+				break
 			except:
-				breake
+				break
 
 def change(combo):
 	with open(txt, 'a+') as chan:
