@@ -99,16 +99,16 @@ try:
 		if not os.path.exists(dir):
 			os.mkdir(dir)
 		print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
-		try:
-			for combo in db:
-				if not ('@') in combo:
-					continue
-				else:
+		for combo in db:
+			try:
+				if ('@') in combo:
 					combo=combo.strip()
 					host=re.search('@(.*?):', combo).group(1)
 					sepdom(host, combo)
-		except(AttributeError):
-			continue
+				else:
+					continue
+			except(AttributeError):
+				continue
 
 	elif tool=='2':
 		txt=input(f'{C}[{G}*{C}]Defina o nome do novo arquivo:{B} ')
