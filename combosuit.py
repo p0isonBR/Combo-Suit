@@ -100,10 +100,11 @@ try:
             os.mkdir(dir)
         print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
         try:
-            for combo.strip() in db:
+            for combo in db:
                     if not ('@') in combo:
                             continue
                     else:
+                      combo=combo.strip()
                       host=re.search('@(.*?):', combo).group(1)
                       sepdom(host, combo)
         except(AttributeError):
