@@ -67,12 +67,17 @@ if not os.path.exists(sepdir):
 	os.mkdir(sepdir)
 
 def sepdom(host, combo):
-	with open(dir+'/'+host+'.txt', "a+") as sep:
-		sep.seek(0)
-		lin=sep.read(150)
-		if len(lin) > 1:
-			sep.write("\n")
-		sep.write(combo)
+	while True:
+		with open(dir+'/'+host+'.txt', "a+") as sep:
+			try:
+				sep.seek(0)
+				lin=sep.read(150)
+				if len(lin) > 1:
+					sep.write("\n")
+				sep.write(combo)
+				brake
+			except:
+				continue
 
 def change(combo):
 	with open(txt, 'a+') as chan:
