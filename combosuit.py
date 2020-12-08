@@ -77,7 +77,7 @@ def sepdom(host, combo):
 				sep.write(combo)
 				brake
 			except:
-				continue
+				brake
 
 def change(combo):
 	with open(txt, 'a+') as chan:
