@@ -58,29 +58,29 @@ print(f'''{B}*By PoisonBR
 
 workdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR')
 if not os.path.exists(workdir):
-    os.mkdir(workdir)
+	os.mkdir(workdir)
 domdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio')
 if not os.path.exists(domdir):
-    os.mkdir(domdir)
+	os.mkdir(domdir)
 sepdir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'Separador')
 if not os.path.exists(sepdir):
-    os.mkdir(sepdir)
+	os.mkdir(sepdir)
 
 def sepdom(host, combo):
-    with open(dir+'/'+host+'.txt', "a+") as sep:
-        sep.seek(0)
-        lin=sep.read(150)
-        if len(lin) > 1:
-            sep.write("\n")
-        sep.write(combo)
+	with open(dir+'/'+host+'.txt', "a+") as sep:
+		sep.seek(0)
+		lin=sep.read(150)
+		if len(lin) > 1:
+			sep.write("\n")
+		sep.write(combo)
 
 def change(combo):
-    with open(txt, 'a+') as chan:
-        chan.seek(0)
-        line=chan.read(150)
-        if len(line) > 1:
-            chan.write("\n")
-        chan.write(combo)
+	with open(txt, 'a+') as chan:
+		chan.seek(0)
+		line=chan.read(150)
+		if len(line) > 1:
+			chan.write("\n")
+		chan.write(combo)
 
 print(f'''{C}Selecione o modo de operação:
 {C}[{G}1{C}] {B}separar combos por dominio ({C}gmail.com{B}, {C}hotmail.com{B}, {C}globo.com{B}...)
@@ -88,45 +88,45 @@ print(f'''{C}Selecione o modo de operação:
 ''')
 
 try:
-    tool=input(f'{C}Selecione ({G}1 {C}ou {G}2{C}): ')
+	tool=input(f'{C}Selecione ({G}1 {C}ou {G}2{C}): ')
 
-    db=open(input(f'{C}[{G}+{C}] Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
-    inicio=str(datetime.datetime.now())
-    
-    if tool=='1':
-        dir=input(f'{C}[{G}*{C}] Digite um nome para a pasta de saida:{B} ')
-        dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio',dir)
-        if not os.path.exists(dir):
-            os.mkdir(dir)
-        print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
-        try:
-            for combo in db:
-                    if not ('@') in combo:
-						continue
-                    else:
-                      combo=combo.strip()
-                      host=re.search('@(.*?):', combo).group(1)
-                      sepdom(host, combo)
-        except(AttributeError):
-                   continue
-                    
-    elif tool=='2':
-        txt=input(f'{C}[{G}*{C}]Defina o nome do novo arquivo:{B} ')
-        txt=sepdir+'/'+txt+'.txt'
-        for combo in db:
-            try:
-                    if re.search(':', combo).group()==':':
-                            combo=combo.replace(':','|')
-            except(AttributeError):
-                    combo=combo.replace('|',':')
-            change(combo)
-    else:
-        print(f'{C}[{R}-{C}] Forma de operação selecionada inválida.')
-        exit()
-    fim=str(datetime.datetime.now())
-    print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:19]+G+'.'+C)
+	db=open(input(f'{C}[{G}+{C}] Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
+	inicio=str(datetime.datetime.now())
+
+	if tool=='1':
+		dir=input(f'{C}[{G}*{C}] Digite um nome para a pasta de saida:{B} ')
+		dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio',dir)
+		if not os.path.exists(dir):
+			os.mkdir(dir)
+		print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
+		try:
+			for combo in db:
+				if not ('@') in combo:
+					continue
+				else:
+					combo=combo.strip()
+					host=re.search('@(.*?):', combo).group(1)
+					sepdom(host, combo)
+		except(AttributeError):
+				continue
+
+	elif tool=='2':
+		txt=input(f'{C}[{G}*{C}]Defina o nome do novo arquivo:{B} ')
+		txt=sepdir+'/'+txt+'.txt'
+		for combo in db:
+			try:
+				if re.search(':', combo).group()==':':
+					combo=combo.replace(':','|')
+			except(AttributeError):
+				combo=combo.replace('|',':')
+			change(combo)
+	else:
+		print(f'{C}[{R}-{C}] Forma de operação selecionada inválida.')
+		exit()
+	fim=str(datetime.datetime.now())
+	print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:19]+G+'.'+C)
 except(KeyboardInterrupt):
-    print(f'{C}[{R}-{C}] Cancelado pelo usuário.')
-    exit(f'{Y}Ctrl-C pressionado{C}')
+	print(f'{C}[{R}-{C}] Cancelado pelo usuário.')
+	exit(f'{Y}Ctrl-C pressionado{C}')
 except(FileNotFoundError):
-    print(f'{C}[{R}-{C}] Arquivo ou diretorio não encontrado.')
+	print(f'{C}[{R}-{C}] Arquivo ou diretorio não encontrado.')
