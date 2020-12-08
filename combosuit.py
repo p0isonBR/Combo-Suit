@@ -92,42 +92,22 @@ try:
 
     db=open(input(f'{C}[{G}+{C}] Caminho da DB: {B}'), 'rb').read().decode('utf-8',errors='ignore').splitlines()
     inicio=str(datetime.datetime.now())
-    print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
-
+    
     if tool=='1':
         dir=input(f'{C}[{G}*{C}] Digite um nome para a pasta de saida:{B} ')
         dir=os.path.join('/', 'sdcard', 'ComboSuitByPoisonBR', 'PorDominio',dir)
         if not os.path.exists(dir):
             os.mkdir(dir)
+        print(G+str(len(db))+C+' combos no arquivo. operação iniciada as '+G+inicio[11:19])
         try:
-            for combo in db:
+            for combo.strip() in db:
                     if not ('@') in combo:
-                            combo='johndoe@example.com:p@ssword!'
-                    elif (' ') in combo:
-                            combo=combo.replace(' ', '')
-                    host=re.search('@(.*?):', combo).group(1)
-                    sepdom(host, combo)
-        except(AttributeError):
-                    print(f'{C}[{R}-{C}]{Y} Voce deve trocar o separador antes (de {C}| {Y}para {C}:{Y}).'); time.sleep(3)
-                    ex=input(f'{C}[{Y}-{C}] Deseja trocar agora? [{G}y{C}/{Y}n{C}]:{B} ').lower()
-                    if ex=='y' or ex=='yes':
-                            new=input(f'{C}[{G}*{C}] Defina o nome do novo arquivo:{B} ')
-                            txt=sepdir+'/'+new+'.txt'
-                            for combo in db:
-                                    combo=combo.replace('|', ':')
-                                    change(combo)
-                            db=open(txt, 'rb').read().decode('utf-8',errors='ignore').splitlines()
-                            try:
-                                    for combo in db:
-                                            host=re.search('@(.*?):', combo).group(1)
-                                            sepdom(host, combo)
-                            except:
-                                    fim=str(datetime.datetime.now())
-                                    print(f'{C}[{G}+{C}] {G}Operação finalizada as {C}'+fim[11:19]+G+'.'+C)
-                                    exit()
+                            continue
                     else:
-                            print(f'{C}[{R}-{C}] Saindo...{C}')
-                            exit()
+                      host=re.search('@(.*?):', combo).group(1)
+                      sepdom(host, combo)
+        except(AttributeError):
+                   continue
                     
     elif tool=='2':
         txt=input(f'{C}[{G}*{C}]Defina o nome do novo arquivo:{B} ')
