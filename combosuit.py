@@ -102,7 +102,7 @@ try:
         try:
             for combo in db:
                     if not ('@') in combo:
-                            continue
+						continue
                     else:
                       combo=combo.strip()
                       host=re.search('@(.*?):', combo).group(1)
